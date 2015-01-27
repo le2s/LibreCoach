@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>LibreCoach | Travaillons ensemble</title>
+	<meta name="description" content="LibreCoach an django_bootstrap application">
+	<meta name="author" content="Lessoued">
+
+	<!-- Mobile Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="images/favicon_LC.ico">
+
+	<!-- Web Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+
+	<!-- Bootstrap core CSS -->
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+	<!-- Font Awesome CSS -->
+	<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+	<!-- Plugins -->
+	<link href="css/animations.css" rel="stylesheet">
+
+	<!-- Worthy core CSS file -->
+	<link href="css/style.css" rel="stylesheet">
+
+	<!-- Custom css -->
+	<link href="css/custom.css" rel="stylesheet">
+
+
+
+	<script type="javascript">
+		function co() {
+			BootstrapDialog.show({
+				title: 'Button Hotkey',
+				message: $('<form role="form" id="footer-form2"><div class="form-group has-feedback"><label class="sr-only" for="identifiant">Nom</label><input type="text" class="form-control" id="identifiant" placeholder="Identifiant" name="nom2" required><i class="fa fa-user form-control-feedback"></i></div><div class="form-group has-feedback"><label class="sr-only" for="mdp2">Mot de passe</label><input type="password" class="form-control" rows="8" id="mdp2" placeholder="Mot de Passe" name="mdp2" required><i class="fa fa-unlock form-control-feedback"></i></div><div class="row"><div class="col-sm-3"></div><div class="col-sm-3"><input type="submit" value="S\'incrire" class="btn btn-default"></div></div></form>'),
+
+			});
+		}
+	</script>
+
+
+</head>
+
+<body class="no-trans">
+<!-- scrollToTop -->
+<!-- ================ -->
+<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+
+<!-- header start -->
+<!-- ================ -->
+<header class="header fixed clearfix navbar navbar-fixed-top">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+
+				<!-- header-left start -->
+				<!-- ================ -->
+				<div class="header-left clearfix">
+
+					<!-- logo -->
+					<div class="logo smooth-scroll">
+						<a href="#banner"><img id="logo" src="images/logoLC.png" alt="Worthy"></a>
+					</div>
+
+					<!--&lt;!&ndash; name-and-slogan &ndash;&gt;-->
+					<!--<div class="site-name-and-slogan smooth-scroll">-->
+						<!--<div class="site-name"><a href="#banner">Worthy</a></div>-->
+						<!--<div class="site-slogan">Free Bootstrap Theme by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a></div>-->
+					<!--</div>-->
+
+				</div>
+				<!-- header-left end -->
+
+			</div>
+			<div class="col-md-8">
+
+				<!-- header-right start -->
+				<!-- ================ -->
+				<div class="header-right clearfix">
+
+					<!-- main-navigation start -->
+					<!-- ================ -->
+					<div class="main-navigation animated">
+
+						<!-- navbar start -->
+						<!-- ================ -->
+						<nav class="navbar navbar-default" role="navigation">
+							<div class="container-fluid">
+
+								<!-- Toggle get grouped for better mobile display -->
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+										<span class="sr-only">Toggle navigation</span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+								</div>
+
+								<!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+									<ul class="nav navbar-nav navbar-right">
+										<li class="active"><a href="#banner">Home</a></li>
+										<!--<li><a href="#about">About</a></li>-->
+										<!--<li><a href="#services">Services</a></li>-->
+										<!--<li><a href="#connect">Portfolio</a></li>-->
+										<li><a id="bconnect" data-toggle="modal" data-target="#basicModal" href="#connect">Connexion</a></li>
+										<li><a href="#inscription">Contact</a></li>
+									</ul>
+								</div>
+
+							</div>
+						</nav>
+						<!-- navbar end -->
+
+					</div>
+					<!-- main-navigation end -->
+
+				</div>
+				<!-- header-right end -->
+
+			</div>
+		</div>
+	</div>
+</header>
+<!-- header end -->
+
+<!-- banner start -->
+<!-- ================ -->
+<div id="banner" class="banner">
+	<div class="banner-image"></div>
+	<div class="banner-caption">
+		<div class="container">
+			<div class="row">
+
+						<!--<ul class="nav nav-pills " data-animation-effect="fadeIn">-->
+							<!--<li class="active col-md-6"></li>-->
+							<!--<li class="active col-md-6"></li>-->
+						<!--</ul>-->
+				<div class="scrollspy smooth-scroll col-md-6"><div class="round-button"><div class="round-button-circle"><a href="#inscription">Envie d'aider ?</a></div></div></div>
+				<div class="scrollspy smooth-scroll col-md-6"><div class="round-button"><div class="round-button-circle"><a href="#inscription">Besoin d'aide ?</a></div></div></div>
+					</div>
+					<!-- isotope filters end -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- banner end -->
+
+<!-- section start -->
+<!-- ================ -->
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				    <button type="button" class="close fa fa-times" data-dismiss="modal" aria-hidden="true"></button>
+					<h4 class="modal-title" id="myModalLabel">Connexion</h4>
+			</div>
+			<div class="modal-body">
+				<form role="form" id="footer-form2">
+					<div class="form-group has-feedback">
+						<label class="sr-only" for="identifiant">Nom</label>
+						<input type="text" class="form-control" id="identifiant" placeholder="Identifiant" name="nom2" required>
+						<i class="fa fa-user form-control-feedback"></i>
+					</div>
+					<div class="form-group has-feedback">
+						<label class="sr-only" for="mdp2">Mot de passe</label>
+						<input type="password" class="form-control" rows="8" id="mdp2" placeholder="Mot de Passe" name="mdp2" required>
+						<i class="fa fa-unlock form-control-feedback"></i>
+					</div>
+					<div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><input type="submit" value="S'incrire" class="btn btn-default"></div></div>
+				</form>
+			</div>
+			<!--<div class="modal-footer">-->
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+				<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+			<!--</div>-->
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="space default-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 ">
+				<!--<h1 class="text-center">Travaillons ensemble</h1>-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- section end -->
+
+<!-- section start -->
+<!-- ================ -->
+<div class="default-bg space blue">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<h1 class="text-center">Travaillons ensemble</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- section end -->
+
+<!-- footer start -->
+<!-- ================ -->
+<footer id="footer">
+
+	<!-- .footer start -->
+	<!-- ================ -->
+	<div class="footer section">
+		<div class="container">
+			<h1 class="title text-center" id="inscription">Inscription</h1>
+			<div class="space"></div>
+			<div class="row">
+				<!--<div class="col-sm-6">-->
+					<!--<div class="footer-content">-->
+						<!--<p class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel nam magnam natus tempora cumque, aliquam deleniti voluptatibus voluptas. Repellat vel, et itaque commodi iste ab, laudantium voluptas deserunt nobis.</p>-->
+						<!--<ul class="list-icons">-->
+							<!--<li><i class="fa fa-map-marker pr-10"></i> One infinity loop, 54100</li>-->
+							<!--<li><i class="fa fa-phone pr-10"></i> +00 1234567890</li>-->
+							<!--<li><i class="fa fa-fax pr-10"></i> +00 1234567891 </li>-->
+							<!--<li><i class="fa fa-envelope-o pr-10"></i> your@email.com</li>-->
+						<!--</ul>-->
+						<!--<ul class="social-links">-->
+							<!--<li class="facebook"><a target="_blank" href="https://www.facebook.com/pages/HtmlCoder/714570988650168"><i class="fa fa-facebook"></i></a></li>-->
+							<!--<li class="twitter"><a target="_blank" href="https://twitter.com/HtmlcoderMe"><i class="fa fa-twitter"></i></a></li>-->
+							<!--<li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>-->
+							<!--<li class="skype"><a target="_blank" href="http://www.skype.com"><i class="fa fa-skype"></i></a></li>-->
+							<!--<li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>-->
+							<!--<li class="youtube"><a target="_blank" href="http://www.youtube.com"><i class="fa fa-youtube"></i></a></li>-->
+							<!--<li class="flickr"><a target="_blank" href="http://www.flickr.com"><i class="fa fa-flickr"></i></a></li>-->
+							<!--<li class="pinterest"><a target="_blank" href="http://www.pinterest.com"><i class="fa fa-pinterest"></i></a></li>-->
+						<!--</ul>-->
+					<!--</div>-->
+				<!--</div>-->
+				<div class="col-sm-4">
+					<div class="media testimonial">
+						<div class="media-left">
+							<img src="images/testimonial-3.png" alt="">
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">Coaching</h3>
+							<blockquote>
+								<p>Vous proposez votre aide</p>
+								<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+							</blockquote>
+						</div>
+					</div>
+					<div class="media testimonial">
+						<div class="media-left">
+							<img src="images/testimonial-1.png" alt="">
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">Experience</h3>
+							<blockquote>
+								<p>Partagez votre experience avec autrui.</p>
+								<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="footer-content">
+						<form role="form" id="footer-form">
+							<div class="form-group has-feedback">
+								<label class="sr-only" for="nom">Nom</label>
+								<input type="text" class="form-control" id="nom" placeholder="Nom" name="nom" required>
+								<i class="fa fa-user form-control-feedback"></i>
+							</div>
+							<div class="form-group has-feedback">
+								<label class="sr-only" for="prenom">Prenom</label>
+								<input type="text" class="form-control" id="prenom" placeholder="Prenom" name="prenon" required>
+								<i class="fa fa-user form-control-feedback"></i>
+							</div>
+							<div class="form-group has-feedback">
+								<label class="sr-only" for="email">Addresse Email</label>
+								<input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+								<i class="fa fa-envelope form-control-feedback"></i>
+							</div>
+							<div class="form-group has-feedback">
+								<label class="sr-only" for="mdp">Mot de passe</label>
+								<input type="password" class="form-control" rows="8" id="mdp" placeholder="Mot de Passe" name="mdp" required>
+								<i class="fa fa-unlock form-control-feedback"></i>
+							</div>
+							<div class="row"><div class="col-sm-3"></div><div class="col-sm-3"><input type="submit" value="S'incrire" class="btn btn-default"></div></div>
+						</form>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="media testimonial">
+						<div class="media-right">
+							<img src="images/testimonial-3.png" alt="">
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">Conseil</h3>
+							<blockquote>
+								<p>Besoin de conseil pour l'elaboration pour exprimer les besoins de votre projet.</p>
+								<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+							</blockquote>
+						</div>
+					</div>
+					<div class="media testimonial">
+						<div class="media-right">
+							<img src="images/testimonial-1.png" alt="">
+						</div>
+						<div class="media-body">
+							<h3 class="media-heading">Suivi</h3>
+							<blockquote>
+								<p>Suivi de votre projet avec les coachs.</p>
+								<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- .footer end -->
+
+
+
+
+	<!-- .subfooter start -->
+	<!-- ================ -->
+	<div class="subfooter">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="text-center">Copyright © 2014 Lessoued Sami, Franck Casalino, Anis Meftah, Alexis Charles.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- .subfooter end -->
+
+</footer>
+<!-- footer end -->
+
+<!-- JavaScript files placed at the end of the document so the pages load faster
+================================================== -->
+<!-- Jquery and Bootstap core js files -->
+<script type="text/javascript" src="plugins/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Modernizr javascript -->
+<script type="text/javascript" src="plugins/modernizr.js"></script>
+
+<!-- Isotope javascript -->
+<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+
+<!-- Backstretch javascript -->
+<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+
+<!-- Appear javascript -->
+<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="js/template.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+</html>
