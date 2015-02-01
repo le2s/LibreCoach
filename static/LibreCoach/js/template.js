@@ -10,7 +10,7 @@
 (function($){
 	$(document).ready(function(){
 	
-		$(".banner-image").backstretch('images/ConnectionMockupLC.png');
+		$(".banner-image").backstretch('../../static/LibreCoach/images/ConnectionMockupLC.png');
 		
 		// Fixed header
 		//-----------------------------------------------

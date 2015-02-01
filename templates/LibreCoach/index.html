@@ -13,38 +13,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="images/favicon_LC.ico">
+	<link rel="shortcut icon" href="../../static/LibreCoach/images/favicon_LC.ico">
 
 	<!-- Web Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
 
 	<!-- Bootstrap core CSS -->
-	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../../static/LibreCoach/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 	<!-- Font Awesome CSS -->
-	<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="../../static/LibreCoach/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
 
 	<!-- Plugins -->
-	<link href="css/animations.css" rel="stylesheet">
+	<link href="../../static/LibreCoach/css/animations.css" rel="stylesheet">
 
 	<!-- Worthy core CSS file -->
-	<link href="css/style.css" rel="stylesheet">
+	<link href="../../static/LibreCoach/css/style.css" rel="stylesheet">
 
 	<!-- Custom css -->
-	<link href="css/custom.css" rel="stylesheet">
+	<link href="../../static/LibreCoach/css/custom.css" rel="stylesheet">
 
-
-
-	<script type="javascript">
-		function co() {
-			BootstrapDialog.show({
-				title: 'Button Hotkey',
-				message: $('<form role="form" id="footer-form2"><div class="form-group has-feedback"><label class="sr-only" for="identifiant">Nom</label><input type="text" class="form-control" id="identifiant" placeholder="Identifiant" name="nom2" required><i class="fa fa-user form-control-feedback"></i></div><div class="form-group has-feedback"><label class="sr-only" for="mdp2">Mot de passe</label><input type="password" class="form-control" rows="8" id="mdp2" placeholder="Mot de Passe" name="mdp2" required><i class="fa fa-unlock form-control-feedback"></i></div><div class="row"><div class="col-sm-3"></div><div class="col-sm-3"><input type="submit" value="S\'incrire" class="btn btn-default"></div></div></form>'),
-
-			});
-		}
-	</script>
 
 
 </head>
@@ -67,7 +56,7 @@
 
 					<!-- logo -->
 					<div class="logo smooth-scroll">
-						<a href="#banner"><img id="logo" src="images/logoLC.png" alt="Worthy"></a>
+						<a href="#banner"><img id="logo" src="../../static/LibreCoach/images/logoLC.png" alt="Worthy"></a>
 					</div>
 
 					<!--&lt;!&ndash; name-and-slogan &ndash;&gt;-->
@@ -167,18 +156,21 @@
 					<h4 class="modal-title" id="myModalLabel">Connexion</h4>
 			</div>
 			<div class="modal-body">
-				<form role="form" id="footer-form2">
+				<form method="post" role="form" id="footer-form2">
+                    {% csrf_token %}
 					<div class="form-group has-feedback">
-						<label class="sr-only" for="identifiant">Nom</label>
-						<input type="text" class="form-control" id="identifiant" placeholder="Identifiant" name="nom2" required>
+						{{ form1.username.error }}
+                        <label class="sr-only" for="{{ form1.username.id_for_label }}">Nom</label>
+						{{ form1.username }}
 						<i class="fa fa-user form-control-feedback"></i>
 					</div>
 					<div class="form-group has-feedback">
-						<label class="sr-only" for="mdp2">Mot de passe</label>
-						<input type="password" class="form-control" rows="8" id="mdp2" placeholder="Mot de Passe" name="mdp2" required>
+                        {{ form1.password.error }}
+						<label class="sr-only" for="{{ form1.password.id_for_label }}">Mot de passe</label>
+						{{ form1.password }}
 						<i class="fa fa-unlock form-control-feedback"></i>
 					</div>
-					<div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><input type="submit" value="S'incrire" class="btn btn-default"></div></div>
+					<div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><input type="submit" value="Se Connecter" name="connect_sub" class="btn btn-default"></div></div>
 				</form>
 			</div>
 			<!--<div class="modal-footer">-->
@@ -251,7 +243,7 @@
 				<div class="col-sm-4">
 					<div class="media testimonial">
 						<div class="media-left">
-							<img src="images/testimonial-3.png" alt="">
+							<img src="../../static/LibreCoach/images/testimonial-3.png" alt="">
 						</div>
 						<div class="media-body">
 							<h3 class="media-heading">Coaching</h3>
@@ -263,7 +255,7 @@
 					</div>
 					<div class="media testimonial">
 						<div class="media-left">
-							<img src="images/testimonial-1.png" alt="">
+							<img src="../../static/LibreCoach/images/testimonial-1.png" alt="">
 						</div>
 						<div class="media-body">
 							<h3 class="media-heading">Experience</h3>
@@ -276,35 +268,52 @@
 				</div>
 				<div class="col-sm-4">
 					<div class="footer-content">
-						<form role="form" id="footer-form">
-							<div class="form-group has-feedback">
-								<label class="sr-only" for="nom">Nom</label>
-								<input type="text" class="form-control" id="nom" placeholder="Nom" name="nom" required>
+						<form method="post" role="form" name="sign" id="footer-form" action="">
+							{% csrf_token %}
+                            <div class="form-group has-feedback fieldWrapper">
+                                {{ form2.username.error}}
+								<label class="sr-only" for="{{ form2.username }}">Pseudo</label>
+								{{ form2.username }}
 								<i class="fa fa-user form-control-feedback"></i>
 							</div>
-							<div class="form-group has-feedback">
-								<label class="sr-only" for="prenom">Prenom</label>
-								<input type="text" class="form-control" id="prenom" placeholder="Prenom" name="prenon" required>
+							<div class="form-group has-feedback fieldWrapper">
+                                {{ form2.first_name.error}}
+								<label class="sr-only" for="{{ form2.first_name }}">Prenom</label>
+								{{ form2.first_name }}
 								<i class="fa fa-user form-control-feedback"></i>
 							</div>
-							<div class="form-group has-feedback">
-								<label class="sr-only" for="email">Addresse Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+							<div class="form-group has-feedback fieldWrapper">
+                                {{ form2.email.error}}
+								<label class="sr-only" for="{{ form2.email }}">Addresse Email</label>
+								{{ form2.email }}
 								<i class="fa fa-envelope form-control-feedback"></i>
 							</div>
-							<div class="form-group has-feedback">
-								<label class="sr-only" for="mdp">Mot de passe</label>
-								<input type="password" class="form-control" rows="8" id="mdp" placeholder="Mot de Passe" name="mdp" required>
+                            <div class="form-group has-feedback fieldWrapper">
+                                {{ form2.phone.error}}
+								<label class="sr-only" for="{{ form2.phone }}">Numero</label>
+								{{ form2.phone }}
+								<i class="fa fa-envelope form-control-feedback"></i>
+							</div>
+							<div class="form-group has-feedback fieldWrapper">
+                                {{ form2.password1.error}}
+								<label class="sr-only" for="{{ form2.password1 }}">Mot de passe</label>
+								{{ form2.password1 }}
 								<i class="fa fa-unlock form-control-feedback"></i>
 							</div>
-							<div class="row"><div class="col-sm-3"></div><div class="col-sm-3"><input type="submit" value="S'incrire" class="btn btn-default"></div></div>
+                            <div class="form-group has-feedback fieldWrapper">
+                                {{ form2.password2.error}}
+								<label class="sr-only" for="{{ form2.password2 }}">Mot de passe</label>
+								{{ form2.password2 }}
+								<i class="fa fa-unlock form-control-feedback"></i>
+							</div>
+							<input type="submit" value="S'incrire" name="signin_sub" class="btn btn-default">
 						</form>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="media testimonial">
 						<div class="media-right">
-							<img src="images/testimonial-3.png" alt="">
+							<img src="../../static/LibreCoach/images/testimonial-3.png" alt="">
 						</div>
 						<div class="media-body">
 							<h3 class="media-heading">Conseil</h3>
@@ -316,7 +325,7 @@
 					</div>
 					<div class="media testimonial">
 						<div class="media-right">
-							<img src="images/testimonial-1.png" alt="">
+							<img src="../../static/LibreCoach/images/testimonial-1.png" alt="">
 						</div>
 						<div class="media-body">
 							<h3 class="media-heading">Suivi</h3>
@@ -355,26 +364,26 @@
 <!-- JavaScript files placed at the end of the document so the pages load faster
 ================================================== -->
 <!-- Jquery and Bootstap core js files -->
-<script type="text/javascript" src="plugins/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- Modernizr javascript -->
-<script type="text/javascript" src="plugins/modernizr.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/plugins/modernizr.js"></script>
 
 <!-- Isotope javascript -->
-<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/plugins/isotope/isotope.pkgd.min.js"></script>
 
 <!-- Backstretch javascript -->
-<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/plugins/jquery.backstretch.min.js"></script>
 
 <!-- Appear javascript -->
-<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/plugins/jquery.appear.js"></script>
 
 <!-- Initialization of Plugins -->
-<script type="text/javascript" src="js/template.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/js/template.js"></script>
 
 <!-- Custom Scripts -->
-<script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript" src="../../static/LibreCoach/js/custom.js"></script>
 
 </body>
 </html>
