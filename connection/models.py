@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from projects.models import Project
 # Create your models here.
-from django.forms import ModelForm
+
 
 
 class ContactF(models.Model):
@@ -18,4 +18,6 @@ class ContactF(models.Model):
 
 class SuperUser(models.Model):
     user = models.OneToOneField(User)
-    phone = models.CharField(max_length=10)
+    phone = models.CharField(max_length=10,blank=True)
+
+

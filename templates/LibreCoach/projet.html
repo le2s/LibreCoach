@@ -97,12 +97,7 @@
 								<!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 									<ul class="nav navbar-nav navbar-right">
-										<li class="active"><a href="#deskop">Home</a></li>
-										<!--<li><a href="#about">About</a></li>-->
-										<li><a href="/projet">Projet</a></li>
-                                        <li><a href="#services">Profil</a></li>
-										<li><a href="#services">Parametres</a></li>
-										<li><a href="/index" color="#19b698">Log Out {{user.username}}</a></li>
+										<li class="active"><a href="/home">Home</a></li>
 									</ul>
 								</div>
 
@@ -122,91 +117,88 @@
 </header>
 <!-- header end -->
 
+<!-- banner start -->
+<!-- ================ -->
 
+<!-- banner end -->
 
 <!-- section start -->
 <!-- ================ -->
-<div class="section" id="deskop">
-	<div class="container">
-		<div class="separator"></div>
-		<div class="row object-non-visible" data-animation-effect="fadeIn">
-			<div class="col-md-12">
 
-				<!-- isotope filters start -->
-				<div class="filters text-center" style="margin-top: 5%">
-					<ul class="nav nav-pills">
-						<li class="active"><a href="#" data-filter="*">All</a></li>
-						<li><a href="#" data-filter=".web-design">Web design</a></li>
-						<li><a href="#" data-filter=".app-development">App development</a></li>
-						<li><a href="#" data-filter=".site-building">Site building</a></li>
-					</ul>
+
+
+
+
+
+<!-- footer start -->
+<!-- ================ -->
+<footer id="footer">
+
+	<!-- .footer start -->
+	<!-- ================ -->
+	<div class="footer section">
+		<div class="container">
+			<h1 class="title text-center" id="inscription" style="margin-top: 8%">{{ status }}</h1>
+			<div class="space"></div>
+			<div class="row">
+				<div class="col-sm-4">
+
 				</div>
-				<!-- isotope filters end -->
-
-                {%for i in liste%}
-
-				<div class="col-sm-6 col-md-3 isotope-item app-development">
-						<div class="image-box">
-							<div class="overlay-container">
-								<img src="../../static/LibreCoach/images/portfolio-12.jpg" alt="">
-								<a class="overlay" data-toggle="modal" data-target="#project-{{forloop.counter}}">
-									<i class="fa fa-search-plus"></i>
-									<span>App Development</span>
-								</a>
+				<div class="col-sm-4">
+					<div class="footer-content">
+						<form method="post" role="form" name="cprojet" id="footer-form" action="">
+							{% csrf_token %}
+                            <div class="form-group has-feedback fieldWrapper">
+                                {{ form.titre.error}}
+								<label class="sr-only" for="{{ form.titre}}">Titre</label>
+								{{ form.titre}}
+								<i class="fa fa-user form-control-feedback"></i>
 							</div>
-							<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-{{forloop.counter}}">{{ i.titre }}</a>
-						</div>
-						<!-- Modal -->
-						<div class="modal fade" id="project-{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="project-12-label" aria-hidden="true">
-							<div class="modal-dialog modal-lg">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-										<h4 class="modal-title" id="project-{{forloop.counter}}-label">{{ i.titre }}</h4>
-									</div>
-									<div class="modal-body">
-										<h3>{{ i.user.username }}</h3>
-										<div class="row">
-											<div class="col-md-6">
-												<span class="tagsP">{{ i.tags }}</span>
-											</div>
-											<div class="col-md-6">
-												<img src="../../static/LibreCoach/images/portfolio-12.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- Modal end -->
 
+							<div class="form-group has-feedback fieldWrapper">
+                                {{ form.objectif.error}}
+								<label class="sr-only" for="{{ form.objectif}}">Objectif</label>
+								{{ form.objectif }}
+								<i class="fa fa-user form-control-feedback"></i>
+							</div>
+
+							<div class="form-group has-feedback fieldWrapper">
+                                {{ form.tag.error}}
+								<label class="sr-only" for="{{ form.tag }}">Tag</label>
+								{{ form.tag }}
+								<i class="fa fa-envelope form-control-feedback"></i>
+							</div>
+
+                            <div class="form-group has-feedback fieldWrapper">
+                                {{ form.objectifs.error}}
+								<label class="sr-only" for="{{ form.objectifs }}">Objectifs</label>
+								{{ form.objectifs }}
+								<i class="fa fa-envelope form-control-feedback"></i>
+							</div>
+
+							<div class="form-group has-feedback fieldWrapper">
+                                {{ form.tags.error}}
+								<label class="sr-only" for="{{ form.tags }}">Tags</label>
+								{{ form.tags }}
+								<i class="fa fa-unlock form-control-feedback"></i>
+							</div>
+
+							<input type="submit" value="Valider" name="create_projet" class="btn btn-default">
+						</form>
 					</div>
-                {% endfor %}
+				</div>
+				<div class="col-sm-4">
 
 			</div>
 		</div>
 	</div>
-</div>
-<!-- section end -->
+    </div>
+
+	<!-- .footer end -->
 
 
 
 
-{#	<!-- .subfooter start -->#}
-{#	<!-- ================ -->#}
-{#	<div class="subfooter">#}
-{#		<div class="container">#}
-{#			<div class="row">#}
-{#				<div class="col-md-12">#}
-{#					<p class="text-center">Copyright © 2014 Lessoued Sami, Franck Casalino, Anis Meftah, Alexis Charles.</p>#}
-{#				</div>#}
-{#			</div>#}
-{#		</div>#}
-{#	</div>#}
-{#	<!-- .subfooter end -->#}
 
 </footer>
 <!-- footer end -->

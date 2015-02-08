@@ -1,5 +1,6 @@
 import logging
 from django.contrib.sites.shortcuts import get_current_site
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.template.response import TemplateResponse
 from django.contrib.auth import authenticate, login
@@ -26,6 +27,10 @@ def goToForm(request,formLog=AuthenticationForm):
                 if user.is_active:
                     logger.error(user.username+' is active')
                     login(request,user)
+                    contextLog = {
+                        'user': user,
+                    }
+                    return HttpResponseRedirect('/home',contextLog)
     if 'signin_sub' in request.POST:
         logger.error('SIGIN POST')
         logger.error('formS valid ? '+str(formS.is_valid()))
@@ -40,12 +45,17 @@ def goToForm(request,formLog=AuthenticationForm):
             user.first_name = first_name
             user.phone = phone
             user.save()
+            contextLog = {
+                        'user': user,
+                        'liste': Project.objects.all(),
+                    }
+            return HttpResponseRedirect('/home',contextLog)
     current_site = get_current_site(request)
     context = {
         'form1': form,
         'form2': formS,
         'site': current_site,
-        'site_name': current_site.name,
+        'site_name': current_site.name
     }
     return TemplateResponse(request, "LibreCoach/index.html", context)
 
@@ -55,6 +65,11 @@ def goToForm(request,formLog=AuthenticationForm):
 
 
 def goToHome(request):
-    return render(request,'LibreCoach/home.html')
+    context = {
+        'liste': Project.objects.all(),
+    }
+    return TemplateResponse(request,'LibreCoach/home.html',context)
+
+
 
 
