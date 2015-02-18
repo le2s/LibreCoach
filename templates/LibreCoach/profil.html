@@ -3,8 +3,6 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
-{% load extra_tag %}
-
 <head>
 	<meta charset="utf-8">
 	<title>LibreCoach | Travaillons ensemble</title>
@@ -38,6 +36,8 @@
 
 
 
+
+
 </head>
 
 <body class="no-trans">
@@ -58,7 +58,7 @@
 
 					<!-- logo -->
 					<div class="logo smooth-scroll">
-						<a href="#banner"><img id="logo" src="../../static/LibreCoach/images/logoLC.png" alt="LC"></a>
+						<a href="#banner"><img id="logo" src="../../static/LibreCoach/images/logoLC.png" alt="Worthy"></a>
 					</div>
 
 					<!--&lt;!&ndash; name-and-slogan &ndash;&gt;-->
@@ -99,12 +99,8 @@
 								<!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 									<ul class="nav navbar-nav navbar-right">
-										<li class="active"><a href="#deskop">Home</a></li>
-										<!--<li><a href="#about">About</a></li>-->
-										<li><a href="/projet">Projet</a></li>
-                                        <li><a href="/profil">Profil</a></li>
-										<li><a href="#services">Parametres</a></li>
-										<li><a href="/index" color="#19b698">Log Out {{user.username}}</a></li>
+										<li class="active"><a href="/home">Home</a></li>
+										<li><a href="#connect" color="#19b698">Log Out</a></li>
 									</ul>
 								</div>
 
@@ -128,67 +124,57 @@
 
 <!-- section start -->
 <!-- ================ -->
-<div class="section" id="deskop">
-	<div class="container">
-		<div class="separator"></div>
-		<div class="row object-non-visible" data-animation-effect="fadeIn">
-			<div class="col-md-12">
+<div class="section">
+			<div class="container object-non-visible" data-animation-effect="fadeIn">
+				<div class="space"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="sticker example-2"></div>
+								<div class="btn_profil_class footer"><div class="btn btn-default btn_profil">Contact</div></div>
 
-				<!-- isotope filters start -->
-				<div class="filters text-center" style="margin-top: 5%">
-					<ul class="nav nav-pills">
-						<li class="active"><a href="#" data-filter="*">All</a></li>
-						<li><a href="#" data-filter=".web-design">Web design</a></li>
-						<li><a href="#" data-filter=".app-development">App development</a></li>
-						<li><a href="#" data-filter=".site-building">Site building</a></li>
-					</ul>
-				</div>
-				<!-- isotope filters end -->
-
-
-                {%for i in liste%}
-                    {% random_number as randid %}
-
-				<div class="col-sm-6 col-md-3 isotope-item app-development">
-						<div class="image-box">
-							<div class="overlay-container">
-								<img src="../../static/LibreCoach/images/portfolio-{{ randid }}.jpg" alt="">
-								<a class="overlay" data-toggle="modal" data-target="#project-{{forloop.counter}}">
-									<i class="fa fa-search-plus"></i>
-									<span>App Development</span>
-								</a>
 							</div>
-							<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-{{forloop.counter}}">{{ i.titre }}</a>
+							<div class="col-md-4 ">
+								<ul class="list-icons infos">
+								<li>{{ userA.user.first_name }}, {{ userA.user.username }}  <i class="fa fa-pencil"></i></li>
+								<li>{{ userA.user.email }}  <i class="fa fa-pencil"></i></li>
+								<li>{{ userA.phone }}  <i class="fa fa-pencil"></i></li>
+								</ul>
+								<div class="forth circle progressbar"></div>
+							</div>
+							<div class="col-md-4">
+								<a href="/dispo"><div class="btn_profil footer"><div class="btn btn-default btn_profil" href="/dispo">Dispo</div></div></a>
+							</div>
 						</div>
-						<!-- Modal -->
-						<div class="modal fade" id="project-{{forloop.counter}}" tabindex="-1" role="dialog" aria-labelledby="project-{{ randid }}-label" aria-hidden="true">
-							<div class="modal-dialog modal-lg">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h4 class="modal-title" id="project-{{forloop.counter}}-label">{{ i.titre }}</h4>
-									</div>
-									<div class="modal-body">
-										<h3>{{ i.user.username }}</h3>
-										<div class="row">
-											<div class="col-md-6">
-												<span class="tagsP">{{ i.tags }}</span>
-											</div>
-											<div class="col-md-6">
-												<img src="../../static/LibreCoach/images/portfolio-12.jpg" alt="">
-											</div>
-										</div>
-									</div>
-									<div class="modal-footer">
-                                        <a href="/add/{{ i.project_id }}"><button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Aider ce projet</button></a>
-										<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Fermer</button>
+					</div>
+					<div class="space visible-xs"></div>
+					<div class="col-md-6">
+						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            {%  for p in projetA %}
+							<div class="panel panel-default">
+								<div class="panel-heading" role="tab" id="headingOne">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+											{{ p.titre }}
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+									<div class="panel-body">
+										{{ p.objectifs }}
 									</div>
 								</div>
 							</div>
+                            {% endfor %}
+
 						</div>
-						<!-- Modal end -->
 
 					</div>
-                {% endfor %}
+					</div>
+				</div>
+		</div>
+		<!-- section end -->
 
 			</div>
 		</div>
@@ -199,18 +185,18 @@
 
 
 
-{#	<!-- .subfooter start -->#}
-{#	<!-- ================ -->#}
-{#	<div class="subfooter">#}
-{#		<div class="container">#}
-{#			<div class="row">#}
-{#				<div class="col-md-12">#}
-{#					<p class="text-center">Copyright © 2014 Lessoued Sami, Franck Casalino, Anis Meftah, Alexis Charles.</p>#}
-{#				</div>#}
-{#			</div>#}
-{#		</div>#}
-{#	</div>#}
-{#	<!-- .subfooter end -->#}
+	<!-- .subfooter start -->
+	<!-- ================ -->
+	<!--<div class="subfooter">-->
+		<!--<div class="container">-->
+			<!--<div class="row">-->
+				<!--<div class="col-md-12">-->
+					<!--<p class="text-center">Copyright © 2014 Lessoued Sami, Franck Casalino, Anis Meftah, Alexis Charles.</p>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+	<!-- .subfooter end -->
 
 </footer>
 <!-- footer end -->
@@ -238,6 +224,32 @@
 
 <!-- Custom Scripts -->
 <script type="text/javascript" src="../../static/LibreCoach/js/custom.js"></script>
+
+<script type="text/javascript" src="../../static/LibreCoach/js/sticker.js"></script>
+
+<script src="../../static/LibreCoach/js/circle-progress.js"></script>
+
+<script type="text/javascript">
+        window.onload = function() {
+            Sticker.init('.sticker');
+        }
+
+		$('.forth.circle').circleProgress({
+			startAngle: Math.PI/4 * {{ userA.level}}	,
+			value: 0.{{ userA.level}},
+			lineCap: 'round',
+      reverse: true,
+			fill: { color: '#1abc9c' }
+		});
+    </script>
+
+     <style type="text/css">
+    .example-2 .sticker-img {
+		background-image: url(../../static/LibreCoach/images/Jose_Mourinho.png);
+		background-size: 80px 80px;
+        }
+    </style>
+
 
 </body>
 </html>

@@ -1,4 +1,6 @@
 import logging
+from django import template
+from django.contrib import auth
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -6,6 +8,8 @@ from django.template.response import TemplateResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from connection.forms import *
+from projects.models import *
+from random import randint
 
 
 logger = logging.getLogger(__name__)
@@ -71,5 +75,25 @@ def goToHome(request):
     return TemplateResponse(request,'LibreCoach/home.html',context)
 
 
-
-
+def addProjet(request,num):
+    logger.error("test")
+    userD = SuperUser.objects.get(user=auth.get_user(request))
+    logger.error("test")
+    logger.error(num)
+    all_p = Project.objects.all()
+    temp = Project()
+    for t in all_p:
+        #logger.error(t.project_id)
+        #logger.error(str(num)+'is'+str(int(num) == t.project_id)+'to'+str(t.project_id))
+        if (int(num) == t.project_id):
+            logger.error("iftest")
+            temp = t
+            logger.error(temp)
+    userD.projet_aide = temp
+    # logger.error(SuperUser(request.user).projet_aide)
+    userD.save()
+    #logger.error(Project.objects.get(project_id=temp.project_id))
+    context = {
+        'liste': Project.objects.all()
+    }
+    return TemplateResponse(request, "LibreCoach/home.html", context)

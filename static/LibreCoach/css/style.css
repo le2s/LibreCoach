@@ -355,7 +355,7 @@ blockquote {
 }
 .panel-heading a.collapsed {
 	color: #ffffff;
-	background-color: #333333;
+	background-color: #34495e;
 }
 .panel-heading a:after {
 	font-family: "FontAwesome";
@@ -782,4 +782,38 @@ div.form-group > input{
     color: #1abc9c;
     margin-top: 2%;
     padding: 7px;
+}
+
+
+
+ .sticker {
+	 width: 80px;
+	 height: 80px;
+        }
+
+.example-2 .sticker-shadow {
+            opacity: 0.6;
+        }
+
+.progressbar{
+	margin-top: 50%;
+}
+
+.btn_profil{
+	min-width: 100%;
+	font-size: 11px;
+}
+
+
+.btn_profil_class{
+	margin-top: 210%;
+}
+
+.blank_space{
+	margin-top: 100%;
+}
+
+
+.infos{
+	font-size: 0.6em;
 }
