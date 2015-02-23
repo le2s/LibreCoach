@@ -7,9 +7,9 @@ from django.forms import ModelForm
 
 
 class ProjectCreate(ModelForm):
-    titre = forms.CharField(label=("Titre"))
-    objectif = forms.CharField(label="Objectifs", required=False)
-    tag = forms.CharField(label="Tags", required=False)
+    titre = forms.CharField(label="Titre", help_text='Titre')
+    objectif = forms.CharField(label="Objectifs", required=False, help_text="Objectif")
+    tag = forms.CharField(label="Tags", required=False, help_text="Tag")
 
     class Meta:
         model = Project

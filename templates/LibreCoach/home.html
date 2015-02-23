@@ -6,6 +6,7 @@
 {% load extra_tag %}
 
 <head>
+    {% csrf_token %}
 	<meta charset="utf-8">
 	<title>LibreCoach | Travaillons ensemble</title>
 	<meta name="description" content="LibreCoach an django_bootstrap application">
@@ -138,9 +139,9 @@
 				<div class="filters text-center" style="margin-top: 5%">
 					<ul class="nav nav-pills">
 						<li class="active"><a href="#" data-filter="*">All</a></li>
-						<li><a href="#" data-filter=".web-design">Web design</a></li>
-						<li><a href="#" data-filter=".app-development">App development</a></li>
-						<li><a href="#" data-filter=".site-building">Site building</a></li>
+						<li><a href="#" data-filter=".web-design">Filtre #1</a></li>
+						<li><a href="#" data-filter=".app-development">Filtre #2</a></li>
+						<li><a href="#" data-filter=".site-building">Filtre #3</a></li>
 					</ul>
 				</div>
 				<!-- isotope filters end -->

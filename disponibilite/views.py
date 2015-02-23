@@ -7,7 +7,7 @@ from disponibilite.forms import *
 
 logger = logging.getLogger(__name__)
 
-
+#Ajouter/Modifier disponiblite
 def goToDispo(request):
     form = DispoInfo(request.POST)
     #status = 'Nouveau Projet'

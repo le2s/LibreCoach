@@ -817,3 +817,11 @@ div.form-group > input{
 .infos{
 	font-size: 0.6em;
 }
+
+#niveau{
+    position: absolute;
+    top: 77%;
+    left: 31%;
+    color: #34495e;
+    font-size: 20px;
+}

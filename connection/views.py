@@ -14,17 +14,18 @@ from random import randint
 
 logger = logging.getLogger(__name__)
 
+#recuperer les données du formulaire
 def goToForm(request,formLog=AuthenticationForm):
     logger.error('goToForm exec >>')
     form = formLog(request, data=request.POST)
     formS = UserCreationForm(request.POST)
+    #SI connexion
     if 'connect_sub' in request.POST:
         logger.error('LOGIN POST')
         logger.error('form valid ? '+str(form.is_valid()))
         if form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
-            logger.error(username+' '+password)
             user = authenticate(username=username, password=password)
             if user is not None:
                 logger.error(user.username+' is not None')
@@ -35,6 +36,7 @@ def goToForm(request,formLog=AuthenticationForm):
                         'user': user,
                     }
                     return HttpResponseRedirect('/home',contextLog)
+    #SI incription
     if 'signin_sub' in request.POST:
         logger.error('SIGIN POST')
         logger.error('formS valid ? '+str(formS.is_valid()))
@@ -43,14 +45,18 @@ def goToForm(request,formLog=AuthenticationForm):
             first_name = request.POST.get('first_name')
             email = request.POST.get('email')
             phone = request.POST.get('phone')
-            logger.error('phone: '+phone)
             password = request.POST.get('password1')
-            user = User.objects._create_user(username,email,password,False,False)
-            user.first_name = first_name
-            user.phone = phone
-            user.save()
+            userO = User.objects._create_user(username,email,password,False,False)
+            userO.first_name = first_name
+            userO.save()
+            test = SuperUser(user=userO)
+            test.save()
+            userA = SuperUser.objects.get(user=userO)
+            userA.phone = phone
+            userA.save()
+            userL = authenticate(username=username, password=password)
             contextLog = {
-                        'user': user,
+                        'user': userL,
                         'liste': Project.objects.all(),
                     }
             return HttpResponseRedirect('/home',contextLog)
@@ -67,14 +73,14 @@ def goToForm(request,formLog=AuthenticationForm):
 
 
 
-
+#Retourner à la page d'accueil
 def goToHome(request):
     context = {
         'liste': Project.objects.all(),
     }
     return TemplateResponse(request,'LibreCoach/home.html',context)
 
-
+#Contribuer à un projet
 def addProjet(request,num):
     logger.error("test")
     userD = SuperUser.objects.get(user=auth.get_user(request))

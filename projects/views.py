@@ -11,7 +11,7 @@ from projects.forms import *
 
 logger = logging.getLogger(__name__)
 
-
+#Ajouter un projet
 def goToProjet(request):
     form = ProjectCreate(request.POST)
     status = 'Nouveau Projet'
